@@ -960,7 +960,22 @@ async function getBrowser(opts = {}) {
     );
   }
   const puppeteerArgs = [
-    "--no-sandbox"
+    "--no-sandbox",
+    "--disable-setuid-sandbox",
+    "--disable-infobars",
+    "--disable-dev-shm-usage",
+    "--disable-blink-features=AutomationControlled",
+    "--ignore-certificate-errors",
+    "--no-first-run",
+    "--no-service-autorun",
+    "--password-store=basic",
+    "--system-developer-mode",
+    "--mute-audio",
+    "--disable-default-apps",
+    "--no-zygote",
+    "--disable-accelerated-2d-canvas",
+    "--disable-web-security",
+    "--load-extension=C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default/Extensions/majdfhpaihoncoakbjgbdhglocklcgno"
   ];
   const browser = await puppeteer.launch({
     headless: false,
