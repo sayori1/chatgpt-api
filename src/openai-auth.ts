@@ -320,7 +320,7 @@ export async function getBrowser(
     // '--js-flags="--max-old-space-size=1024"'
   ]
 
-  if (nopechaKey) {
+  /*   if (nopechaKey) {
     const nopechaPath = path.join(
       __dirname,
       '..',
@@ -329,23 +329,23 @@ export async function getBrowser(
     )
     puppeteerArgs.push(`--load-extension=${nopechaPath}`)
     hasNopechaExtension = true
-  }
+  } */
 
-  if (proxyServer) {
+  /*   if (proxyServer) {
     const ipPort = proxyServer.includes('@')
       ? proxyServer.split('@')[1]
       : proxyServer
     puppeteerArgs.push(`--proxy-server=${ipPort}`)
-  }
+  } */
 
   const browser = await puppeteer.launch({
-    headless: false,
+    /*     headless: false,
     // devtools: true,
     args: puppeteerArgs,
     ignoreDefaultArgs: ['--disable-extensions', '--enable-automation'],
     ignoreHTTPSErrors: true,
     executablePath,
-    ...launchOptions
+    ...launchOptions */
   })
 
   if (process.env.PROXY_VALIDATE_IP) {

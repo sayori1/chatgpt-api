@@ -753,7 +753,6 @@ import { v4 as uuidv42 } from "uuid";
 // src/openai-auth.ts
 import * as fs from "node:fs";
 import * as os from "node:os";
-import * as path from "node:path";
 import * as url from "node:url";
 import delay from "delay";
 import { TimeoutError } from "p-timeout";
@@ -977,28 +976,7 @@ async function getBrowser(opts = {}) {
     "--disable-accelerated-2d-canvas",
     "--disable-web-security"
   ];
-  if (nopechaKey) {
-    const nopechaPath = path.join(
-      __dirname2,
-      "..",
-      "third-party",
-      "nopecha-chrome-extension"
-    );
-    puppeteerArgs.push(`--load-extension=${nopechaPath}`);
-    hasNopechaExtension = true;
-  }
-  if (proxyServer) {
-    const ipPort = proxyServer.includes("@") ? proxyServer.split("@")[1] : proxyServer;
-    puppeteerArgs.push(`--proxy-server=${ipPort}`);
-  }
-  const browser = await puppeteer.launch({
-    headless: false,
-    args: puppeteerArgs,
-    ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
-    ignoreHTTPSErrors: true,
-    executablePath,
-    ...launchOptions
-  });
+  const browser = await puppeteer.launch({});
   if (process.env.PROXY_VALIDATE_IP) {
     const page = (await browser.pages())[0] || await browser.newPage();
     if (minimize) {
