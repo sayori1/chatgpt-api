@@ -976,7 +976,10 @@ async function getBrowser(opts = {}) {
     "--disable-accelerated-2d-canvas",
     "--disable-web-security"
   ];
-  const browser = await puppeteer.launch({});
+  const browser = await puppeteer.launch({
+    executablePath,
+    ...launchOptions
+  });
   if (process.env.PROXY_VALIDATE_IP) {
     const page = (await browser.pages())[0] || await browser.newPage();
     if (minimize) {

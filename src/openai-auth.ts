@@ -343,9 +343,9 @@ export async function getBrowser(
     // devtools: true,
     args: puppeteerArgs,
     ignoreDefaultArgs: ['--disable-extensions', '--enable-automation'],
-    ignoreHTTPSErrors: true,
+    ignoreHTTPSErrors: true,*/
     executablePath,
-    ...launchOptions */
+    ...launchOptions
   })
 
   if (process.env.PROXY_VALIDATE_IP) {
