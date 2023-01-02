@@ -1,3 +1,11 @@
+var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
+  get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
+}) : x)(function(x) {
+  if (typeof require !== "undefined")
+    return require.apply(this, arguments);
+  throw new Error('Dynamic require of "' + x + '" is not supported');
+});
+
 // src/chatgpt-api.ts
 import ExpiryMap from "expiry-map";
 import pTimeout from "p-timeout";
@@ -760,6 +768,7 @@ import puppeteer from "puppeteer-extra";
 import RecaptchaPlugin from "puppeteer-extra-plugin-recaptcha";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import random from "random";
+var { executablePath, userDataDir } = __require("puppeteer");
 puppeteer.use(StealthPlugin());
 var hasRecaptchaPlugin = false;
 var hasNopechaExtension = false;
@@ -775,7 +784,7 @@ async function getOpenAIAuth({
   isMicrosoftLogin = false,
   captchaToken = process.env.CAPTCHA_TOKEN,
   nopechaKey = process.env.NOPECHA_KEY,
-  executablePath,
+  executablePath: executablePath2,
   proxyServer = process.env.PROXY_SERVER,
   minimize = false
 }) {
@@ -787,7 +796,7 @@ async function getOpenAIAuth({
       browser = await getBrowser({
         captchaToken,
         nopechaKey,
-        executablePath,
+        executablePath: executablePath2,
         proxyServer,
         timeoutMs
       });
@@ -1252,7 +1261,7 @@ var ChatGPTAPIBrowser = class extends AChatGPTAPI {
       minimize = true,
       captchaToken,
       nopechaKey,
-      executablePath,
+      executablePath: executablePath2,
       proxyServer
     } = opts;
     this._email = email;
@@ -1264,7 +1273,7 @@ var ChatGPTAPIBrowser = class extends AChatGPTAPI {
     this._minimize = !!minimize;
     this._captchaToken = captchaToken;
     this._nopechaKey = nopechaKey;
-    this._executablePath = executablePath;
+    this._executablePath = executablePath2;
     this._proxyServer = proxyServer;
     this._isRefreshing = false;
     if (!this._email) {

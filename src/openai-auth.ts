@@ -14,6 +14,8 @@ import random from 'random'
 import * as types from './types'
 import { minimizePage } from './utils'
 
+const { executablePath, userDataDir } = require('puppeteer')
+
 puppeteer.use(StealthPlugin())
 
 let hasRecaptchaPlugin = false
