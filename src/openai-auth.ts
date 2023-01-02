@@ -327,7 +327,6 @@ export async function getBrowser(
       'third-party',
       'nopecha-chrome-extension'
     )
-    puppeteerArgs.push(`--disable-extensions-except=${nopechaPath}`)
     puppeteerArgs.push(`--load-extension=${nopechaPath}`)
     hasNopechaExtension = true
   }
@@ -343,11 +342,7 @@ export async function getBrowser(
     headless: false,
     // devtools: true,
     args: puppeteerArgs,
-    ignoreDefaultArgs: [
-      '--disable-extensions',
-      '--enable-automation',
-      '--disable-component-extensions-with-background-pages'
-    ],
+    ignoreDefaultArgs: ['--enable-automation'],
     ignoreHTTPSErrors: true,
     executablePath,
     ...launchOptions
