@@ -299,8 +299,8 @@ export async function getBrowser(
 
   // https://peter.sh/experiments/chromium-command-line-switches/
   const puppeteerArgs = [
-    '--no-sandbox',
-    '--disable-setuid-sandbox',
+    '--no-sandbox'
+    /*     '--disable-setuid-sandbox',
     '--disable-infobars',
     '--disable-dev-shm-usage',
     '--disable-blink-features=AutomationControlled',
@@ -315,7 +315,7 @@ export async function getBrowser(
     '--disable-default-apps',
     '--no-zygote',
     '--disable-accelerated-2d-canvas',
-    '--disable-web-security'
+    '--disable-web-security' */
     // '--disable-gpu'
     // '--js-flags="--max-old-space-size=1024"'
   ]
@@ -339,11 +339,11 @@ export async function getBrowser(
   } */
 
   const browser = await puppeteer.launch({
-    /*     headless: false,
+    headless: false,
     // devtools: true,
     args: puppeteerArgs,
     ignoreDefaultArgs: ['--disable-extensions', '--enable-automation'],
-    ignoreHTTPSErrors: true,*/
+    //ignoreHTTPSErrors: true,
     executablePath,
     ...launchOptions
   })
