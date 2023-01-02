@@ -973,8 +973,7 @@ async function getBrowser(opts = {}) {
     "--mute-audio",
     "--disable-default-apps",
     "--no-zygote",
-    "--disable-accelerated-2d-canvas",
-    "--disable-web-security"
+    "--disable-accelerated-2d-canvas"
   ];
   const browser = await puppeteer.launch({
     headless: false,
