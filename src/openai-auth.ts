@@ -5,7 +5,13 @@ import * as url from 'node:url'
 
 import delay from 'delay'
 import { TimeoutError } from 'p-timeout'
-import { Browser, Page, Protocol, PuppeteerLaunchOptions } from 'puppeteer'
+import {
+  Browser,
+  Page,
+  Protocol,
+  PuppeteerLaunchOptions,
+  executablePath
+} from 'puppeteer'
 import puppeteer from 'puppeteer-extra'
 import RecaptchaPlugin from 'puppeteer-extra-plugin-recaptcha'
 import StealthPlugin from 'puppeteer-extra-plugin-stealth'
@@ -13,8 +19,6 @@ import random from 'random'
 
 import * as types from './types'
 import { minimizePage } from './utils'
-
-const { executablePath, userDataDir } = require('puppeteer')
 
 puppeteer.use(StealthPlugin())
 
