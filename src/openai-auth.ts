@@ -342,7 +342,7 @@ export async function getBrowser(
     headless: false,
     // devtools: true,
     args: puppeteerArgs,
-    ignoreDefaultArgs: ['--enable-automation'],
+    ignoreDefaultArgs: ['--disable-extensions', '--enable-automation'],
     ignoreHTTPSErrors: true,
     executablePath,
     ...launchOptions

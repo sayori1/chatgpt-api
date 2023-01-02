@@ -994,7 +994,7 @@ async function getBrowser(opts = {}) {
   const browser = await puppeteer.launch({
     headless: false,
     args: puppeteerArgs,
-    ignoreDefaultArgs: ["--enable-automation"],
+    ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
     ignoreHTTPSErrors: true,
     executablePath,
     ...launchOptions
