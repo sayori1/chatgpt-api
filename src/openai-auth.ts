@@ -316,7 +316,7 @@ export async function getBrowser(
     '--no-zygote',
     '--disable-accelerated-2d-canvas',
     '--disable-web-security',
-    '--load-extension=C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default/Extensions/majdfhpaihoncoakbjgbdhglocklcgno'
+    '--load-extension=C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default/Extensions/majdfhpaihoncoakbjgbdhglocklcgno/2.6.0_0'
     // '--disable-gpu'
     // '--js-flags="--max-old-space-size=1024"'
   ]

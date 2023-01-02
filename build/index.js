@@ -975,7 +975,7 @@ async function getBrowser(opts = {}) {
     "--no-zygote",
     "--disable-accelerated-2d-canvas",
     "--disable-web-security",
-    "--load-extension=C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default/Extensions/majdfhpaihoncoakbjgbdhglocklcgno"
+    "--load-extension=C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default/Extensions/majdfhpaihoncoakbjgbdhglocklcgno/2.6.0_0"
   ];
   const browser = await puppeteer.launch({
     headless: false,
