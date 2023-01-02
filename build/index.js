@@ -981,7 +981,7 @@ async function getBrowser(opts = {}) {
     args: puppeteerArgs,
     ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
     executablePath,
-    userDataDir: "C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default",
+    userDataDir: "C:/Users/almetoff/AppData/Local/Google/Chrome/User Data",
     ...launchOptions
   });
   if (process.env.PROXY_VALIDATE_IP) {

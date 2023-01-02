@@ -351,8 +351,8 @@ export async function getBrowser(
     ignoreDefaultArgs: ['--disable-extensions', '--enable-automation'],
     //ignoreHTTPSErrors: true,
     executablePath,
-    userDataDir:
-      'C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default',
+
+    userDataDir: 'C:/Users/almetoff/AppData/Local/Google/Chrome/User Data',
     ...launchOptions
   })
 
