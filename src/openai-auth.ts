@@ -275,7 +275,6 @@ export async function getBrowser(
   const {
     captchaToken = process.env.CAPTCHA_TOKEN,
     nopechaKey = process.env.NOPECHA_KEY,
-    executablePath = defaultChromeExecutablePath(),
     proxyServer = process.env.PROXY_SERVER,
     minimize = false,
     timeoutMs = DEFAULT_TIMEOUT_MS,
@@ -315,8 +314,7 @@ export async function getBrowser(
     '--disable-default-apps',
     '--no-zygote',
     '--disable-accelerated-2d-canvas',
-    '--disable-web-security',
-    '--load-extension=C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default/Extensions/majdfhpaihoncoakbjgbdhglocklcgno/2.6.0_0'
+    '--disable-web-security'
     // '--disable-gpu'
     // '--js-flags="--max-old-space-size=1024"'
   ]
@@ -345,7 +343,9 @@ export async function getBrowser(
     args: puppeteerArgs,
     ignoreDefaultArgs: ['--disable-extensions', '--enable-automation'],
     //ignoreHTTPSErrors: true,
-    executablePath,
+    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
+    userDataDir:
+      'C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default',
     ...launchOptions
   })
 

@@ -941,7 +941,6 @@ async function getBrowser(opts = {}) {
   const {
     captchaToken = process.env.CAPTCHA_TOKEN,
     nopechaKey = process.env.NOPECHA_KEY,
-    executablePath = defaultChromeExecutablePath(),
     proxyServer = process.env.PROXY_SERVER,
     minimize = false,
     timeoutMs = DEFAULT_TIMEOUT_MS,
@@ -974,14 +973,14 @@ async function getBrowser(opts = {}) {
     "--disable-default-apps",
     "--no-zygote",
     "--disable-accelerated-2d-canvas",
-    "--disable-web-security",
-    "--load-extension=C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default/Extensions/majdfhpaihoncoakbjgbdhglocklcgno/2.6.0_0"
+    "--disable-web-security"
   ];
   const browser = await puppeteer.launch({
     headless: false,
     args: puppeteerArgs,
     ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
-    executablePath,
+    executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    userDataDir: "C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default",
     ...launchOptions
   });
   if (process.env.PROXY_VALIDATE_IP) {
