@@ -5,8 +5,13 @@ import * as url from 'node:url'
 
 import delay from 'delay'
 import { TimeoutError } from 'p-timeout'
-import { Browser, Page, Protocol, PuppeteerLaunchOptions } from 'puppeteer'
-import { executablePath } from 'puppeteer-core'
+import {
+  Browser,
+  Page,
+  Protocol,
+  PuppeteerLaunchOptions,
+  executablePath
+} from 'puppeteer'
 import puppeteer from 'puppeteer-extra'
 import RecaptchaPlugin from 'puppeteer-extra-plugin-recaptcha'
 import StealthPlugin from 'puppeteer-extra-plugin-stealth'
@@ -278,6 +283,7 @@ export async function getBrowser(
     nopechaKey = process.env.NOPECHA_KEY,
     proxyServer = process.env.PROXY_SERVER,
     minimize = false,
+    executablePath = defaultChromeExecutablePath(),
     timeoutMs = DEFAULT_TIMEOUT_MS,
     ...launchOptions
   } = opts
@@ -344,7 +350,7 @@ export async function getBrowser(
     args: puppeteerArgs,
     ignoreDefaultArgs: ['--disable-extensions', '--enable-automation'],
     //ignoreHTTPSErrors: true,
-    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
+    executablePath,
     userDataDir:
       'C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default',
     ...launchOptions

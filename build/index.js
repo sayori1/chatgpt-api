@@ -943,6 +943,7 @@ async function getBrowser(opts = {}) {
     nopechaKey = process.env.NOPECHA_KEY,
     proxyServer = process.env.PROXY_SERVER,
     minimize = false,
+    executablePath = defaultChromeExecutablePath(),
     timeoutMs = DEFAULT_TIMEOUT_MS,
     ...launchOptions
   } = opts;
@@ -979,7 +980,7 @@ async function getBrowser(opts = {}) {
     headless: false,
     args: puppeteerArgs,
     ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
-    executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    executablePath,
     userDataDir: "C:/Users/almetoff/AppData/Local/Google/Chrome/User Data/Default",
     ...launchOptions
   });
